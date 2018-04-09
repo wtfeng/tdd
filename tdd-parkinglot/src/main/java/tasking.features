@@ -1,0 +1,54 @@
+scenario 
+	Show total free spaces
+Given
+	parking lot (spaces 1)
+when
+	show number of free spaces
+then
+	return free spaces 1
+	
+scenario 
+	Park when there is available space
+Given
+	parking lot (spaces 1)
+when
+	park a car NO 123
+then
+	return car NO 123.
+	
+scenario 
+	Park a car when no free spaces
+Given
+	parking lot (spaces 1), park a car. 
+when
+	park a car
+then
+	should return parking lot is full exception
+	
+scenario 
+	Park a car when the car already in the parking lot
+Given
+	parking lot (spaces 2), park car No 123. 
+when
+	park a car No 123
+then
+	should return not allow the same car no exception
+		
+scenario 
+	Fetch a parked car
+Given
+	parking lot (2 spaces), car NO 123 is parked
+when
+	fetch car NO 123.
+then
+	free spaces == 2.
+	
+scenario 
+	Fetch a car when the car no does not exist.
+Given
+	parking lot (1 spaces), 
+when
+	fetch car NO 123.
+then
+	return car does not exist exception.
+	
