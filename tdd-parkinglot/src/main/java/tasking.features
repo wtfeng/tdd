@@ -52,3 +52,51 @@ when
 then
 	return car does not exist exception.
 	
+Given
+	#1 parking lot( 2 space), #2 parking lot( 2 space), both empty
+when
+	park 2 cars, fetch them in parking lot #1
+then
+	2 cars should be fetched
+
+Given
+	#1 parking lot( 1 space)
+	and #2 parking lot( 1 space)
+when
+	park car 1
+	and park car 2
+	
+then
+	fetch car 1 in #1 parking lot 
+	and fetch car 2 in #2 parking lot 
+
+Given
+	#1 parking lot( 1 space), #2 parking lot( 1 space), both empty
+when
+	park a car
+	and park a car
+	and park a car
+then
+	fail since no space
+	
+
+Given
+	#1 parking lot( 1 space), #2 parking lot( 2 space), both empty, park car 1, park car 2
+when
+	pick up car 1, park car 3
+then
+	car 3 should be parked in #1 parking lot
+	
+Given
+	#1 parking lot( 3 space), #2 parking lot( 3 space)
+	and park car 1
+	and park car 2
+	and park car 3
+	and	pick up car 1
+	and pick up car 3
+when
+	park car 4
+then
+	car 4 should be parked in the first space of #1 parking lot.
+		
+	
