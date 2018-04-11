@@ -1,4 +1,4 @@
-package com.aiatss.tdd;
+package com.vincent.tdd;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
